@@ -1,21 +1,7 @@
 .grid {
-  padding: 10%;
-  gap: 15px;
-  display: flex;
-  justify-content:space-evenly;
-  flex-wrap: wrap;
-  //   display: grid;
-  //place-items: center;
-// //   justify-content: center;
-// //   grid-row: auto;
-// //   grid-column: auto;
-// //   place-items: center;
-// //     grid-auto-flow: column;
-//   //grid-auto-flow: column;
-//   grid-template-columns: repeat(4, minmax(200px, 1fr));
-
-//   /*    display: flex;
-//     align-items:center;
-//     justify-content: center; */
-   
+  padding: 10px;
+  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 100vh;
 }

@@ -1,13 +1,11 @@
-import React from 'react'
-import classes from "./EmptyCard.module.scss"
-import { AiOutlinePlusSquare } from 'react-icons/ai';
+import classes from './EmptyCard.module.scss';
 
-export default function EmptyCard() {
+type EmptyButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+export default function EmptyCard(props: EmptyButtonProps) {
   return (
-
-    <div className={classes.card}>
-        <AiOutlinePlusSquare/>
-        <p>Create</p>
-    </div>
-  )
+    <button className={classes.card} {...props}>
+      Create
+    </button>
+  );
 }
