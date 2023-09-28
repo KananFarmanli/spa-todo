@@ -1,0 +1,54 @@
+@import "../../style/variables.scss";
+
+.card {
+  cursor: pointer;
+  background: $quinary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+  max-width: 300px;
+  width: 100%;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+
+  &>div:first-child{
+    display:flex;
+    align-items:center;
+  }
+}
+
+.delete{
+    flex-grow: 2;
+    font-size: 20px;
+    transition: 200ms ease all;
+    &:hover{
+        transform: scale(1.2);
+
+    }
+}
+.time {
+  align-self: end;
+  
+  > * {
+    font-size: 12px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap:10px;
+}
+.name {
+  width: 50%;
+  flex-grow: 3;
+  display: flex;
+  align-items: start;
+  font-weight: 500;
+  font-size: 20px;
+}
