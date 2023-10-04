@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import classes from './Board.module.scss';
-import Card from '../../components/Card/Card';
-import EmptyCard from '../../components/EmptyCard/EmptyCard';
-import useBoard from './useBoard';
-import Modal from '../../components/ui/Modal';
+import React, { Fragment, useState } from "react";
+import cls from "./Board.module.scss";
+import Card from "../../components/Card/Card";
+import EmptyCard from "../../components/EmptyCard/EmptyCard";
+import useBoard from "./useBoard";
+import Modal from "../../components/ui/Modal";
+import Loading from "../../components/Loading/Loading";
+import Button from "../../components/Button/Button";
 
 export default function Board() {
   const {
@@ -16,24 +18,45 @@ export default function Board() {
     closeModal,
   } = useBoard();
 
+  console.log(boards);
   return (
-    <div className={classes.grid}>
-      <EmptyCard onClick={openModal} />
-      {loading && 'Loading...'}
-      {boards.map((board) => (
-        <Card key={board.id} {...board} />
-      ))}
+    <Fragment>
+      {!loading ? (
+        <div className={cls.grid}>
+          <EmptyCard onClick={openModal} />
+          {boards.map((board) => (
+            <Card key={board.id} {...board} />
+          ))}
 
-      <Modal modalOpen={modalOpen} onClose={closeModal}>
-        <input ref={inputRef} type="text" name="" id="" />
-        <button
-          onClick={() =>
-            createBoard(inputRef.current ? inputRef.current.value : '')
-          }
-        >
-          create borad
-        </button>
-      </Modal>
-    </div>
+          <Modal
+            modalOpen={modalOpen}
+            onClose={closeModal}
+            modalParentClass={cls.modalParentClass}
+            modalContainerClass={cls.modalContainerClass}
+          >
+            <div className={cls.request}>
+              <label htmlFor="requestInput"> Create board</label>
+              <input
+                className={cls.requestInput}
+                ref={inputRef}
+                type="text"
+                name=""
+                id="requestInput"
+              />
+            </div>
+            <Button
+              buttonClass={cls.buttonClass}
+              onClick={() =>
+                createBoard(inputRef.current ? inputRef.current.value : "")
+              }
+            >
+              Confirm
+            </Button>
+          </Modal>
+        </div>
+      ) : (
+        <Loading />
+      )}
+    </Fragment>
   );
 }

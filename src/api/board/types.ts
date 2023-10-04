@@ -1,39 +1,13 @@
+import { DataColumn } from "../column/types";
+
 export type DataBoard = {
   id: number;
   name: string;
-  columns?: [DataColumn, DataColumn, DataColumn];
   createdAt: string;
-};
-
-export type DataColumn = {
-  id: number;
-  namer: string;
-  boardId: number;
-  createdAt: string;
-  taskId: DataTask[];
-};
-
-export type DataTask = {
+}
+export type DataBoardId = {
   id: number;
   name: string;
-  default: string;
-  priority: number;
-  columnId: number;
-  files: DataFile[];
-  comments: DataComment[];
+  columns: DataColumn[];
   createdAt: string;
-};
-
-export type DataFile = {
-  id: number;
-  name: string;
-  taskId: number;
-  createdAt: string;
-};
-
-export type DataComment = {
-  id: number;
-  name: string;
-  taskId: number;
-  createdAt: string;
-};
+}

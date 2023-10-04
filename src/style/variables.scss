@@ -1,8 +1,109 @@
 
 
-$primary: rgb(252, 208, 161);
-$tertiary: rgb(90, 125, 124);
-$secondary: rgb(35, 44, 51);
-$quaternary: rgb(160, 193, 209);
-$quinary: rgb(214, 81, 8);
+$dark-tone: #333;
+$success:darkslategray;
+$dark: rgb(0, 0, 0);
+$info-dark-tone: rgba(33, 87, 141, 0.962);;
+$info-dark: rgba(#167ff752, 0.2);
+$info: rgb(112, 183, 255);
+$danger: crimson;
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+$warning-dark: rgb(87, 51, 51);
+$warning:  rgb(209, 18, 18);
+$light: rgb(255, 255, 255);
+
+
+
+@function rgba-color($color, $alpha) {
+    $red: red($color);
+    $green: green($color);
+    $blue: blue($color);
+    $rgba: rgba($red, $green, $blue, $alpha);
+    @return $rgba;
+  }
+
+  @mixin responsive_xl {
+    @media (max-width: 1200) {
+      @content;
+    }
+  }
+  @mixin responsive_lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @mixin responsive_md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @mixin responsive_sm {
+    @media (max-width: 640px) {
+      @content;
+    }
+  }
+  @mixin responsive_xs {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+/* 
+  @include responsive_lg{
+  
+  } 
+  
+  
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+  
+  
+  
+  */
+
 

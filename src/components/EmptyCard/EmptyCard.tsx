@@ -1,11 +1,13 @@
-import classes from './EmptyCard.module.scss';
+import classes from "./EmptyCard.module.scss";
 
 type EmptyButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function EmptyCard(props: EmptyButtonProps) {
   return (
-    <button className={classes.card} {...props}>
-      Create
-    </button>
+    <div className={classes.container}>
+      <button className={classes.button} {...props}>
+        CREATE
+      </button>
+    </div>
   );
 }

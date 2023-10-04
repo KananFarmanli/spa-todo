@@ -1,0 +1,43 @@
+@import "../../style/variables.scss";
+
+.task{
+    padding: 10px;
+    width: 100%;
+    background-color: rgba-color($dark,0.8);
+    color:white;
+    transition:all 0.1s ease-in-out;
+   
+    &:active{
+      opacity: unset!important;
+      background-color:$warning;
+    
+    }
+}
+
+.taskName{
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    text-align: center;
+    color:$light;
+}
+
+.taskId{
+
+    
+}
+
+.container{
+  display:flex;
+  transition:all 0.1s ease-in-out;
+  //background-color:rgba(0,0,0,0.9);
+  padding:5px;
+  color:$light;
+ 
+  
+
+
+
+  
+}
+

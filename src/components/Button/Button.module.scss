@@ -1,0 +1,52 @@
+
+@import "../../style/variables.scss";
+
+ 
+
+.defaultClass {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size:20px;
+    background-color: rgba-color($warning-dark,0.7);
+    min-width: 150px;
+    width: 100%;
+    min-height: 50px;
+    color: rgba(255,255,255,0.7);
+    padding: 10px;
+    overflow: hidden;
+    cursor:pointer;
+  
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2.5em;
+      height: 100%;
+      background-color: rgba(#fff, 0.6);
+      transform: translateX(-4em) skewX(-45deg);
+    }
+  
+    &:hover {
+      &:before {
+        animation: move-light 0.7s;
+      }
+    }
+
+    &:hover{
+        background-color:$warning-dark;
+      }
+    
+  }
+  
+  @keyframes move-light {
+    from {
+      transform: translateX(-4em) skewX(-45deg);
+    }
+    to {
+      transform: translateX(25em) skewX(-45deg);
+    }
+  }
+
+

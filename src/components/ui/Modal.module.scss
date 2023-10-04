@@ -1,3 +1,6 @@
+
+@import "../../style/variables.scss";
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -5,36 +8,59 @@
   width: 100%;
   height: 100vh;
   z-index: 20;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba-color($dark,0.55);
 }
 
-.modal {
+
+
+.defaultModal {
   position: fixed;
-  top: 20vh;
-  left: 5%;
-  width: 90%;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px  rgba-color($dark,0.25);;
   z-index: 30;
+  background-color: rgba-color($info,0.55);
   animation: slide-down 300ms ease-out forwards;
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  border:2px solid $light;
+
 }
 
-@media (min-width: 768px) {
-  .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
-  }
+
+
+
+ @media (min-width: 768px) {
+    
 }
 
 @keyframes slide-down {
   from {
     opacity: 0;
-    transform: translateY(-3rem);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+} 
+
+
+.close{
+  align-self:end;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background-color:$dark; 
+  align-self: flex-end;
+  span{
+      width: 50%;
+      height: 2px;
+      background-color: rgba-color($light,0.7);;
+
   }
 }

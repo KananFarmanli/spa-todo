@@ -21,7 +21,9 @@ const useBoard = () => {
   useEffect(() => {
     getBoards()
       .then(({ data }) => {
+        console.log("getBoards")
         setBoards(data.data);
+
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));

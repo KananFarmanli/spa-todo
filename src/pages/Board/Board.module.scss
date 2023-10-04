@@ -1,7 +1,111 @@
+
+
+
+@import '../../style/variables.scss';
+
+
+
+
 .grid {
-  padding: 10px;
-  gap: 8px;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  align-self:center;
+  gap: 20px;
+ width: 100%;
   height: 100vh;
+  height: min-content;
+  display:flex;
+  max-width: 1400px;
+  align-items:center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
 }
+
+.buttonClass{
+  padding:15px;
+  color:$light;
+  font-size: 18px; 
+  min-height: 50px!important;
+}
+
+.request{
+  padding-inline: 15px;;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  gap:20px;
+
+  &>label{
+    font-size: 20px;
+    display:flex;
+    color:rgba-color($light,0.7);
+    align-items:center;
+  }
+}
+.requestInput{
+  width: 100%;
+  padding: 5px;
+  height:40px;
+  outline: none;
+  width: 100%;
+  background-color:$info-dark-tone;
+  color: rgba-color($light,0.7);
+
+}
+
+.modalParentClass{
+  width:350px;
+  height:300px;
+}
+
+
+.modalContainerClass{
+background-color:rgba-color($dark,0.7);;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    
+    &>*{
+      width: calc(100% - 50% - 10px)!important;
+    }
+    
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    &>*{
+      width: calc(100% - 50% - 10px)!important;
+    }
+  }
+}
+    
+@media screen and (max-width: 640px) {
+  .grid {
+    
+    &>*{
+      width: 100%!important;
+    }
+  } 
+}
+@media screen and (max-width: 576px) {
+  .grid {
+   
+  
+  } 
+}
+
+
+
+

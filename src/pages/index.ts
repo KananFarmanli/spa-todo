@@ -1,3 +1,3 @@
 
 export { default as Board } from "./Board/Board";
-export { default as Task } from "./Task/Task";
+export { default as Tasks } from "./Tasks/Tasks";
