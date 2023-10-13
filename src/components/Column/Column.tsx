@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Droppable } from "react-beautiful-dnd";
 import { DataTask } from "../../api/datatask/types";
 import Task from "../Task/Task";

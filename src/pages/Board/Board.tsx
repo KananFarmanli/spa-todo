@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import { Fragment } from "react";
 import cls from "./Board.module.scss";
 import Card from "../../components/Card/Card";
 import EmptyCard from "../../components/EmptyCard/EmptyCard";

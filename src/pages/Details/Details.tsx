@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import cls from "./Details.module.scss";
 import Button from "../../components/Button/Button";
 import { DataTask } from "../../api/datatask/types";
@@ -17,9 +17,9 @@ type DetailsProps = DataTask & {
 };
 function Details(props: DetailsProps) {
   const {
-    handleMouseMove,
+  
     handleMouseDown,
-    handleMouseUp,
+
     handlePriority,
     progressBarFn,
     dataFormatter,

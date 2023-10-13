@@ -1,8 +1,8 @@
-import React, {useEffect}from "react";
+import React from "react";
 import cls from "./Comments.module.scss";
-import useComments from "./useComments";
+/* import useComments from "./useComments";
 import axios from "axios";
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../components/Button/Button"; */
 import { DataComment } from "../../../../api/datacomment/types";
 import Comment from "./components/Comment/Comment";
 import SendForm from "./components/SendForm/SendForm";

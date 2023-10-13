@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import classes from "./Layout.module.scss";
-import { Routes, Route, Link, Navigate, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
-import { useParams } from "react-router-dom";
+
 
 export default function Layout() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import cls from "./EmptyCard.module.scss";
 import classNames from "classnames";
 let cx = classNames.bind(cls);

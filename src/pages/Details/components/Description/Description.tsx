@@ -1,9 +1,9 @@
-import React, { Fragment,useEffect, useState, useRef } from "react";
-import { EditorState, ContentState, convertToRaw , convertFromRaw} from "draft-js";
+import {  useState } from "react";
+import { EditorState, convertToRaw , convertFromRaw} from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import cls from "./Description.module.scss";
-import TextEditor from "../TextEditor/TextEditor";
+
 import classNames from "classnames";
 import "./Description.scss";
 import Button from "../../../../components/Button/Button";

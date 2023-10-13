@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import  {Fragment} from "react";
 import cls from "./Task.module.scss";
 import {
   DraggableProvided,
@@ -10,8 +10,8 @@ import useModal from "../ui/useModal";
 import Details from "../../pages/Details/Details";
 import Modal from "../ui/Modal";
 import { DataTask } from "../../api/datatask/types";
-import { DataFile } from "../../api/datafile/types";
-import { DataComment } from "../../api/datacomment/types";
+/* import { DataFile } from "../../api/datafile/types";
+import { DataComment } from "../../api/datacomment/types"; */
 
 
 type TaskType  = Omit<DataTask, "id"> & {

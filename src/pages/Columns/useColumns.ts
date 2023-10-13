@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { DataBoardId } from "../../api/board/types";
 import { getBoardById } from "../../api/board";
 import { DropResult } from 'react-beautiful-dnd';
 import { DataTask } from "../../api/datatask/types";
 import { z } from 'zod';
 import { createTask as createTaskApi } from '../../api/datatask/endpoints';
-import { DataColumn } from '../../api/column/types';
+
 import { moveTask } from "../../api/datatask/endpoints";
 
 

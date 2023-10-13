@@ -15,7 +15,7 @@ export default function useDetails(props: PropsType) {
   const [commentsArray, setComments] = useState<DataComment[]>([]);
   const [pane1, setPane1] = useState<string>("95%");
   const [pane2, setPane2] = useState<string>(`${100 - parseInt(pane1)}%`);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const  setIsDragging = useState<boolean>(false);
   const [timeElapsed, setTimeElapsed] = useState("");
   const [priority, setPriority] = useState(props.priority.toLowerCase());
 
@@ -66,7 +66,7 @@ export default function useDetails(props: PropsType) {
     e.preventDefault();
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
-    setIsDragging(true);
+    setIsDragging[1](true);
 
     document.body.style.cursor = "grabbing";
   };
@@ -81,7 +81,7 @@ export default function useDetails(props: PropsType) {
   const handleMouseUp = () => {
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
-    setIsDragging(false);
+    setIsDragging[1](false);
     document.body.style.cursor = "auto";
   };
   const handlePriority = async (string: string, id: number) => {

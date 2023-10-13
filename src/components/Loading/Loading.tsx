@@ -1,4 +1,4 @@
-import React from 'react'
+
 import cls from "./Loading.module.scss"
 
 type PropsType={

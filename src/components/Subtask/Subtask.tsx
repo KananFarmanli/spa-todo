@@ -1,4 +1,4 @@
-import React from 'react'
+
 import cls from "./Subtask.module.scss"
 
 export default function Subtask() {

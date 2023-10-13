@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect} from "react";
 import cls from "./MenuBar.module.scss";
 
 type MyComponentProps = {
@@ -18,7 +18,7 @@ type Value = {
 
 
 export default  React.memo(function  MenuBar(props: MyComponentProps) {
-  function getMenu(arr: string[]) {
+/*   function getMenu(arr: string[]) {
     let obj: { [key: string]: boolean } = {};
     for (let index = 0; index < arr.length; index++) {
       index == 0 ? (obj[arr[index]] = true) : (obj[arr[index]] = false);
@@ -26,7 +26,7 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
     return obj;
   }
 
- 
+  */
 
   const childrenArray = React.Children.toArray(props.children);
 
