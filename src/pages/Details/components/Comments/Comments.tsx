@@ -20,7 +20,7 @@ type PropsType = {
  function Comments(props: PropsType) {
 
    let paddingForComments = 1
-console.log(props.comments)
+console.log(props.comments.length , "================================") 
 
 /*   useEffect(()=>{
 const abort=new AbortController()
@@ -34,10 +34,10 @@ return ()=>{
     <div id={props.id} className={cls.container}>
           <div className={cls.comments}>
 
-           {props.comments.map((comment) => (
+      { props.comments.length==0?  <div className={cls.noComment}> No comments yet</div> :     props.comments.map((comment) => (
         <Comment key={comment.id} comment={comment} paddingForComments={paddingForComments} setComments={props.setComments} />
-      ))} 
-            
+      ))
+      }
         </div>
      <SendForm setComments={props.setComments} taskId={props.taskId} parentId={null}/>
     </div>

@@ -76,15 +76,40 @@
   -moz-user-select: none; 
   -ms-user-select: none; 
   -o-user-select: none; 
- 
-  
+ width: 100%;
+  display:flex;
+  justify-content: space-between;
   flex-grow: 1;
   >*{
     font-family: 'Goldman', cursive;
   font-weight: 400;
     font-size:20px;
   }
+
+
+  &>button{
+    background-color:transparent;
+border:none;
+    height: 30px;
+    width: 30px;
+    cursor:pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+  &>button>svg{
+    fill:rgba($light, 0.7);
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+  &>button:hover svg{
+    font-size: 20px;
+
+    fill:crimson;
+    
+  }
 }
+
+
 
 
 @include responsive_lg {

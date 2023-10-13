@@ -9,6 +9,12 @@ export const getBoardById = (id:number) =>
 export const createBoard = (name: string) =>
   axiosInstance.post<{ data: DataBoard }>('/board', { name });
 
+type Message={
+  message: string
+}
+export const deleteBoard = (id: number) =>
+  axiosInstance.delete<{ data: Message }>(`/board/${id}`);
+
 
 
   /* 

@@ -3,7 +3,7 @@ import cls from "./Comment.module.scss";
 import classNames from "classnames";
 import { DataComment } from "../../../../../../api/datacomment/types";
 import SendForm from "../SendForm/SendForm";
-
+import { RiDeleteBinLine} from 'react-icons/ri';
 type CommentProps = {
   comment: DataComment;
   paddingForComments: number;
@@ -12,13 +12,18 @@ type CommentProps = {
 
  function Comment(props: CommentProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false); 
   let enhancedPadding = props.paddingForComments + 5;
   const toggleReplies = () => {
     setIsExpanded(!isExpanded);
   };
- // console.log(props.comment, "Dedededededewfijwoifhowirgj");
+
+  const toggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+  };
+
   let haveChildren = props.comment?.comments?.length > 0 ? true : false;
-  //const tree = classNames(cls.tree, { [cls.height]: isExpanded });
+
 
   return (
     <div className={cls.commentContainer}>
@@ -37,16 +42,25 @@ type CommentProps = {
       >
         <div className={cls.commentWrapper}>
           <div className={cls.comment}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure velit
-            omnis commodi. Voluptatibus.
+           <div className={cls.content}> {props.comment.content}</div>
+           <button><RiDeleteBinLine/></button>
           </div>
-          <div className={cls.reply}>reply</div>
-          <SendForm 
-          setComments={props.setComments}
-          buttonClass={cls.buttonClass} 
-          formClass={cls.formClass} 
-          taskId={props.comment.taskId} 
-          parentId={props.comment.id} />
+          <div
+            className={cls.reply}
+            onClick={toggleForm} 
+          >
+            {isFormOpen ? "Cancel" : "Reply"}
+          </div>
+          {isFormOpen && (
+            <SendForm
+            setIsFormOpen={setIsFormOpen}
+              setComments={props.setComments}
+              buttonClass={cls.buttonClass}
+              formClass={cls.formClass}
+              taskId={props.comment.taskId}
+              parentId={props.comment.id}
+            />
+          )}
         </div>
 
         {isExpanded && props.comment.comments.length > 0 && (
@@ -64,7 +78,7 @@ type CommentProps = {
 
         {haveChildren && (
           <div className={cls.showComments} onClick={toggleReplies}>
-            {!isExpanded ? "Show sub-comments" : "Hide sub-comments"}
+            {!isExpanded ? `Show sub-comments  ( ${props.comment.comments.length} )` : "Hide sub-comments"}
           </div>
         )}
       </div>

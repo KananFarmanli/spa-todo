@@ -30,7 +30,7 @@ function Details(props: DetailsProps) {
     handleDelete,
     commentsArray,
     setComments
-  } = useDetails({ createdAt: props.createdAt, status: props.status, closeModal: props.closeModal});
+  } = useDetails({taskId:props.id, createdAt: props.createdAt, status: props.status, closeModal: props.closeModal, priority:props.priority});
 
   const { formattedDate, formattedTime } = dataFormatter(props.createdAt);
   const progressBar: number | false = progressBarFn(props.subTasks);
@@ -98,7 +98,7 @@ function Details(props: DetailsProps) {
                       name="priority"
                       value="low"
                       checked={priority === "low"} 
-                      onChange={() => handlePriority("low")} 
+                      onChange={() => handlePriority("low", props.id)} 
                     />
                     <span className={`${cls.radioCircle}  ${cls.low}`}></span>
                   </label>
@@ -109,7 +109,7 @@ function Details(props: DetailsProps) {
                       name="priority"
                       value="high"
                       checked={priority === "high"} 
-                      onChange={() => handlePriority("high")} // 
+                      onChange={() => handlePriority("high", props.id)} // 
                     />
                     <span className={`${cls.radioCircle} ${cls.high}`}></span>
                   </label>

@@ -3,11 +3,13 @@ import { DataTask } from "../../api/datatask/types";
 import { deleteTask } from "../../api/datatask";
 import { DataComment } from "../../api/datacomment/types";
 import { getComments } from "../../api/datacomment";
-
+import { updateTask } from "../../api/datatask";
 type PropsType = {
   createdAt: string;
   status: string;
   closeModal: () => void;
+  priority:string;
+  taskId:number;
 };
 export default function useDetails(props: PropsType) {
   const [commentsArray, setComments] = useState<DataComment[]>([]);
@@ -15,7 +17,7 @@ export default function useDetails(props: PropsType) {
   const [pane2, setPane2] = useState<string>(`${100 - parseInt(pane1)}%`);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [timeElapsed, setTimeElapsed] = useState("");
-  const [priority, setPriority] = useState("low");
+  const [priority, setPriority] = useState(props.priority.toLowerCase());
 
   const progressBarFn = (subTasks: DataTask[]) => {
     console.log(subTasks,"carta carta cart")
@@ -82,9 +84,22 @@ export default function useDetails(props: PropsType) {
     setIsDragging(false);
     document.body.style.cursor = "auto";
   };
-
-  const handlePriority = (string: string) => {
-    string == "low" ? setPriority("low") : setPriority("high");
+  const handlePriority = async (string: string, id: number) => {
+    if (string === "low" || string === "high") {
+      const priorityValue = string === "low" ? "LOW" : "HIGH";
+      const obj = {
+        priority: priorityValue,
+      };
+      setPriority(priorityValue.toLowerCase())
+      try {
+        const response = await updateTask(id, obj);
+        // Ваша логика обработки ответа от сервера, например, обработка ошибок.
+        console.log(response);
+      } catch (error) {
+        console.error("Ошибка при обновлении задачи:", error);
+        // Добавьте обработку ошибок, если необходимо.
+      }
+    }
   };
 
   const handleDelete = async (id: number, parentId: null | number) => {
@@ -129,9 +144,11 @@ export default function useDetails(props: PropsType) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const { data, status, statusText } = await getComments(3)
+        let id = props.taskId
+        console.log(id,"fetching comments================  ")
+        const { data, status, statusText } = await getComments(id)
         if (status === 200) {
-          console.log(data,"================================================  =================================================================")
+        
           setComments(data);
         } else {
           console.error("Ошибка при получении комментариев:", statusText);

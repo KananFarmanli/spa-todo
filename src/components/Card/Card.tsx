@@ -2,7 +2,8 @@ import React from "react";
 import classes from "./Card.module.scss";
 import { DataBoard } from "../../api/board/types";
 import { useNavigate } from "react-router-dom";
-
+import { RiDeleteBinLine} from 'react-icons/ri';
+import { deleteBoard } from "../../api/board";
 type CardProps = DataBoard;
 
 export default function Card(props: CardProps) {
@@ -17,6 +18,11 @@ export default function Card(props: CardProps) {
     return [time, date];
   };
 
+
+  const deleteHandler =(e: React.MouseEvent<HTMLButtonElement>, id:number)=>{
+    e.stopPropagation()
+    deleteBoard(id)
+  }
   const [time, date] = converToSeparateDate(props.createdAt);
 
   return (
@@ -28,7 +34,10 @@ export default function Card(props: CardProps) {
 
         <div className={classes.title}>
           <h1 className={classes.name}>{props.name.toLocaleUpperCase()}</h1>
-        {/* <RiDeleteBinLine className={classes.delete} /> */}
+          <button onClick={(e)=>(deleteHandler(e,props.id))}>
+
+        <RiDeleteBinLine className={classes.delete} /> 
+          </button>
         </div>
 
         <div className={classes.info}>

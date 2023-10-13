@@ -16,6 +16,7 @@ type SendProps = {
   formClass?: string;
   buttonClass?: string;
   onClick?: () => void;
+  setIsFormOpen?:React.Dispatch<React.SetStateAction<boolean>>
   setComments: React.Dispatch<React.SetStateAction<DataComment[]>>
 };
 function SendForm(props: SendProps) {
@@ -38,6 +39,11 @@ function SendForm(props: SendProps) {
     const newTask = await createComments(validation.data);
     props.setComments((prev: DataComment[]) => ([...prev]));
    // i still need to find solution to render
+
+    if(props.setIsFormOpen){
+
+      props.setIsFormOpen(false)
+    }
   };
 
   return (
