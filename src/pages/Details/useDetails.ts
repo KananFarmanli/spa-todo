@@ -21,13 +21,13 @@ export default function useDetails(props: PropsType) {
 
   const progressBarFn = (subTasks: DataTask[]) => {
     console.log(subTasks,"carta carta cart")
-    if (subTasks.length ==0) {
+    if (subTasks.length ===0) {
       return false;
     }
   //  console.log(subTasks.length, "length of tasks: " + subTasks.length);
     const overall: number = subTasks?.length;
     const notCompleteSubtasks: number = subTasks.filter(
-      (t) => t.status.toUpperCase() == "DONE"
+      (t) => t.status.toUpperCase() === "DONE"
     ).length;
     console.log(
       notCompleteSubtasks,
@@ -57,7 +57,7 @@ export default function useDetails(props: PropsType) {
       .toString()
       .padStart(2, "0")}/${year}`;
 
-    const formattedDateTime = `${formattedTime}  ${formattedDate}`;
+/*     const formattedDateTime = `${formattedTime}  ${formattedDate}`; */
 
     return { formattedTime, formattedDate };
   };
@@ -159,7 +159,7 @@ export default function useDetails(props: PropsType) {
     };
 
     fetchComments();
-  }, []);
+  }, [props.taskId]);
 
   return {
     handleMouseMove,

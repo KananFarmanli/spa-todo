@@ -47,7 +47,7 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
     const rectButton = buttonElement.getBoundingClientRect();
     const rectParent = closestParent!.getBoundingClientRect();
     const distanceFromParentStart = rectButton.left - rectParent.left;
-    const childrenCount = closestParent!.children.length-1 || 0;
+  /*   const childrenCount = closestParent!.children.length-1 || 0; */
     const id =buttonElement.id
 
 
@@ -73,7 +73,7 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
       width,
       height,
     }));
-  }, []);
+  }, [props.menuList]);
 
   return (
     <div className={cls["menu-container"]}>
@@ -92,7 +92,7 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
             return (
               <div
                 className={cls.menu}
-                data-default={`${index == 0 && "defaultButton"}`}
+                data-default={`${index === 0 && "defaultButton"}`}
                 id={item}
                 key={index}
                 onClick={selectItem}
@@ -110,7 +110,7 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
          childrenArray.map((el:any,index) => {
 
 
-           if(value.forRender == el.props.id){
+           if(value.forRender === el.props.id){
     
            return ( <div className={cls.menuContainer} key={index}>
                 {el}
