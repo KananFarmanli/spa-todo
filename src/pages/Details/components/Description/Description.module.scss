@@ -1,0 +1,15 @@
+@import "../../../../style/variables.scss";
+
+
+.text-redactor-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow-y: hidden;
+    align-items:center;
+    padding: 10px;
+    background-color: rgba(210,232,255, 0.9);
+  }
+  
+

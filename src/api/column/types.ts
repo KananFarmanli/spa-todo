@@ -7,5 +7,5 @@ export type DataColumn = {
     name: string;
     boardId: number;
     createdAt: string;
-    task?: DataTask[];
+    task: DataTask[];
   };

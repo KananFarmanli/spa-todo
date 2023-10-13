@@ -1,12 +1,49 @@
-@import '../style/variables';
+@import "../style/variables";
 
 .main {
   width: 100%;
-  display: flex;;
-  padding: 30px;
+  display: flex;
+  padding-inline: 30px;
+  padding-bottom: 30px;
+  
   min-height: 100vh;
-  background-image:url(../assets/bg.jpg);
+  // background-image:url(../assets/bg.jpg);
+  background: -webkit-linear-gradient(
+    135deg,
+    rgb(0, 0, 0) 25%,
+    rgb(2, 60, 92) 100%
+  );
+  background: -moz-linear-gradient(
+    135deg,
+    rgb(0, 0, 0) 25%,
+    rgb(2, 60, 92) 100%
+  );
+  background: linear-gradient(135deg, rgb(0, 0, 0) 25%, rgb(2, 60, 92) 100%);
   background-size: cover;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
+}
+
+
+@include responsive_lg{
+  
+  .main{
+    padding-inline:10px;
+    padding-bottom: 10px;
+  }
+}
+@include responsive_md{
+  
+  .main{
+    padding-inline:10px;
+    padding-bottom: 10px;
+  }
+}
+
+@include responsive_xs{
+
+  .main{
+    padding-inline:5px;
+    padding-block: 5px;
+  }
 }

@@ -26,7 +26,7 @@ export default function Card(props: CardProps) {
     >
       <button className={classes.button}>
 
-        <div className={classes.tittle}>
+        <div className={classes.title}>
           <h1 className={classes.name}>{props.name.toLocaleUpperCase()}</h1>
         {/* <RiDeleteBinLine className={classes.delete} /> */}
         </div>

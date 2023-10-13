@@ -1,14 +1,31 @@
-import React, {useState} from 'react'
+import React, { useRef, FormEvent, useState} from "react";
+import { createTask } from "../../api/datatask";
 
+type ColumnProps = {
+  createTask: (name: string) => Promise<void>;
+  closeModal: () => void;
+};
+export default function useColumn(props: ColumnProps) {
+  const [loading, setState] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-export default function useColumn() {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    props.closeModal();
+    console.log("submit", event);
 
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const closeModal = () => setModalOpen(false)
-  const openModal = () => setModalOpen(true)
-  const submitHandler = () => {
-    console.log("submit")
-  }
+    const name = inputRef.current!.value;
+    console.log(name);
 
-  return {openModal, closeModal, modalOpen, submitHandler}
+    try {
+      setState(true)
+      await props.createTask(name);
+ 
+    } catch (error) {
+    } finally {   setState(false)
+
+    }
+  };
+
+  return { handleSubmit,loading, inputRef };
 }

@@ -1,0 +1,135 @@
+/* 
+  @include responsive_lg{
+
+  } 
+
+
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+
+
+
+  */
+.container {
+  width: 300px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  overflow: hidden;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 2.5em;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateX(-4em) skewX(-45deg);
+}
+.button:hover:before {
+  animation: move-light 0.7s;
+}
+
+@keyframes move-light {
+  from {
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  to {
+    transform: translateX(25em) skewX(-45deg);
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  align-self: self-end;
+  justify-content: end;
+}
+.info > * {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.title {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  flex-grow: 1;
+}
+.title > * {
+  font-family: "Goldman", cursive;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: 120px;
+    cursor: pointer;
+  }
+  .container h1 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    height: 120px;
+    cursor: pointer;
+  }
+  .container h1 {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=Card.module.css.map */

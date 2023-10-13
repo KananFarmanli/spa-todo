@@ -8,3 +8,24 @@ export const getBoardById = (id:number) =>
 
 export const createBoard = (name: string) =>
   axiosInstance.post<{ data: DataBoard }>('/board', { name });
+
+
+
+  /* 
+  
+  {{BASE_URL}}/task/2/move
+  
+  {
+    "tasks": [
+         {
+            "id": 4,
+            "position": 1
+        }
+        
+       
+    ],
+    "oldColumnId": 1,
+    "newColumnId": 3
+}
+  
+  */

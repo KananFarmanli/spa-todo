@@ -6,100 +6,84 @@ import cls from "./Column.module.scss";
 import useColumn from "./useColumn";
 import Button from "../Button/Button";
 import Modal from "../ui/Modal";
+import useModal from "../ui/useModal";
+import classNames from "classnames";
+import clsBtn from "../Button/Button.module.scss"
 
 type ColumnProps = {
-  children?: React.ReactNode;
-  id?: number;
-  title?: string;
-  openModal?: (() => void) ;
+  createTask: (name: string) => Promise<void>;
+  droppableId: number;
+  title: string;
   tasks?: DataTask[];
 };
 
 const Dummy_TitleType ="Queue"
 
-export default function Column({ id, title, tasks, }: ColumnProps) {
- 
-/*  
-its little hook that meant to be used for arrangment of logic
-but for the moment there just one function */
- const {closeModal,modalOpen, openModal, submitHandler}= useColumn();
+export default function Column({ droppableId, title, tasks,createTask }: ColumnProps) {
+  const { openModal, modalOpen, closeModal } = useModal();
+  const {handleSubmit, inputRef, loading}= useColumn({closeModal, createTask});
+  const buttonCls = classNames(cls.buttonClass, {[clsBtn.btnDisabled]:loading})
+  const columnCls = classNames(cls.taskWrapper, cls.customScroll)
 
-const fnclose = () =>{
-
-}
- 
- console.log(tasks)
- 
  
   return (
     <div className={cls.wrapper}>
       <h1 className={cls.title}>{title}</h1>
-      <Modal modalOpen={modalOpen} onClose={closeModal} modalParentClass={cls.modalParentClass}>
-
-
-      <form className={cls.addTaskForm}>
-       
-          <div className={cls.addTaskContainer}>
+      <Modal modalOpen={modalOpen} 
+      onClose={closeModal} 
+      modalParentClass={cls.modalParentClass}
+      modalContainerClass={cls.modalContainerClass}
+      >
+     <form className={cls.form} onSubmit={(e)=>(handleSubmit(e))}>
+          <div className={cls.request}>
             <label htmlFor="addTask">Inset task title :</label>
-            <input type="text" id="addTask" />
+            <input className={cls.requestInput}  ref={inputRef} type="text" id="addTask" />
           </div>
-
-          <div className={cls.priorityContainer}>
-            <div className={cls.priorityTitle}>Choose Priority :</div>
-            <div className={cls.priorityRadio}>
-              <label>
-                <input type="radio" name="priority" value="low" checked/>
-                <span className={`${cls.radioCircle}  ${cls.low}`}>Low</span> 
-              </label>
-              <label>
-                <input type="radio" name="priority" value="high" />
-                <span className={`${cls.radioCircle} ${cls.high}`}>High</span> 
-              </label>
-            </div>
-          </div>
-          
-          <Button onClick={submitHandler} buttonClass={cls.buttonClass}>Confirm</Button>
-        </form>
-
-
+          <Button   >Confirm</Button>
+     </form>
       </Modal>
-      <div className={cls.taskContainer}>
-        <Droppable droppableId={`${id}`}>
+      <div className={columnCls}>
+        <Droppable droppableId={`${droppableId}`}>
           {(provided, snapshot) => {
             return (
+
+
+              
               <div
                 className={cls.taskContainer}
                 ref={provided.innerRef}
                  {...provided.droppableProps} 
               >
                
-                   { tasks?.map((task, index) => (
-                   <Task
-                    id={task.id} 
+                   { tasks?.map((task, index) => {
+                   // console.log(task)
+                 return  <Task
+                   parentId={task.parentId}
+                   position={task.position}
+                   status={task.status}
+                   subTasks={task.subTasks}
+                    draggableId={task.id} 
                     name={task.name} 
                     description={task.description} 
                     priority={task.priority} 
                     columnId={task.columnId} 
-                    date={task.createdAt} 
+                    createdAt={task.createdAt} 
                     index={index} 
-                    comments={[]} 
-                    file={[]}
-                    key={index}
+                    comments={task.comments} 
+                    files={task.files}
+                    key={task.id}
                   /> 
-                ))} 
+                   })} 
                 
                 {provided.placeholder}
-                {title == Dummy_TitleType && (
-                  <Button onClick={openModal} buttonClass={cls.buttonClass}> Add Task</Button>
-                  
-                
-                  )}
                 
               </div>
+             
             );
           }}
         </Droppable> 
       </div>
+          {title == Dummy_TitleType && (<Button onClick={openModal} buttonClass={buttonCls} > Add Task</Button>)}
     </div>
   );
 }

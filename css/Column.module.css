@@ -1,0 +1,233 @@
+/* 
+  @include responsive_lg{
+
+  } 
+
+
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+
+
+
+  */
+.wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(255, 255, 255);
+  align-self: start;
+  max-height: 70vh;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 0.1s ease-in-out;
+  overflow: hidden;
+}
+.wrapper:hover {
+  box-shadow: 0px 5px 10px 0px rgba(245, 247, 127, 0.5);
+  background-color: rgba(112, 183, 255, 0.9);
+}
+
+.taskWrapper {
+  height: 100%;
+  overflow: auto;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 50px;
+  height: 100%;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  font-family: "Goldman", cursive;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  padding: 5px;
+  min-height: 50px;
+}
+
+.form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonClass {
+  margin-top: 10px;
+  font-size: 18px;
+  min-height: 50px;
+}
+
+.request {
+  flex-grow: 1;
+  padding-inline: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+.request > label {
+  font-size: 20px;
+  display: flex;
+  color: rgba(255, 255, 255, 0.7);
+  align-items: center;
+}
+
+.requestInput {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  outline: none;
+  width: 100%;
+  background-color: rgba(33, 87, 141, 0.962);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.modalParentClass {
+  width: 350px;
+  height: 300px;
+}
+
+.modalContainerClass {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.customScroll {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.customScroll::-webkit-scrollbar {
+  width: 15px;
+}
+.customScroll::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+.customScroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.customScroll::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+  background-clip: padding-box;
+  border-radius: 55px;
+}
+
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    width: 31%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 32%;
+    padding: 5px;
+  }
+  .title {
+    font-size: 18px;
+    min-height: 40px;
+  }
+  .buttonClass {
+    margin-top: 5px;
+    font-size: 16px;
+    padding: 5px;
+    min-height: 40px !important;
+  }
+  .request > label {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 45%;
+    justify-content: space-between;
+    min-height: 30vh;
+    max-height: 30vh;
+  }
+  .taskContainer {
+    flex-grow: 1;
+  }
+  .taskWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .title {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .wrapper {
+    width: 45%;
+    min-height: 30vh;
+    max-height: 30vh;
+  }
+  .title {
+    font-size: 14px;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    padding: 5px;
+    min-height: 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .modalParentClass {
+    width: 80%;
+    height: 300px;
+  }
+  .wrapper {
+    width: 90%;
+    align-self: center;
+    max-height: 30vh;
+  }
+}/*# sourceMappingURL=Column.module.css.map */

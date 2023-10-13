@@ -1,0 +1,121 @@
+/* 
+  @include responsive_lg{
+
+  } 
+
+
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+
+
+
+  */
+.toolbarOff {
+  display: none;
+}
+
+.editor {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.wrapper .rdw-editor-toolbar {
+  color: rgb(0, 0, 0);
+}
+
+.editorSize {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper .rdw-block-dropdown {
+  width: 130px;
+}
+
+.public-DraftEditor-content {
+  overflow: auto;
+}
+
+.public-DraftEditor-content > div {
+  padding-inline: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.public-DraftEditor-content > div * {
+  font-size: revert;
+}
+.public-DraftEditor-content > div pre {
+  color: black;
+}
+.public-DraftEditor-content > div .rdw-image-alignment {
+  color: black;
+}
+
+.buttonSubmit {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(255, 255, 255);
+  transition: all 0.2s ease;
+  border: none;
+}
+.buttonSubmit:hover {
+  background-color: dodgerblue;
+  color: rgb(255, 255, 255);
+}
+.buttonSubmit:hover:before {
+  animation: move-light 0.7s;
+}
+
+@keyframes move-light {
+  from {
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  to {
+    transform: translateX(40em) skewX(-45deg);
+  }
+}
+/* api.imgur.com/oauth2/addclient
+ *//*# sourceMappingURL=Description.css.map */

@@ -4,10 +4,13 @@
  
 
 .defaultClass {
+  font-family: 'Goldman', cursive;
+  font-weight: 400;
     position: relative;
     display: inline-block;
     text-decoration: none;
     font-size:20px;
+    transition: all 0.2s ease;
     background-color: rgba-color($warning-dark,0.7);
     min-width: 150px;
     width: 100%;
@@ -17,6 +20,11 @@
     overflow: hidden;
     cursor:pointer;
   
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+
     &:before {
       content: "";
       position: absolute;
@@ -39,6 +47,12 @@
       }
     
   }
+
+  .btnDisabled{
+    background-color:$warning;
+     pointer-events: none; 
+     
+    }
   
   @keyframes move-light {
     from {
@@ -50,3 +64,20 @@
   }
 
 
+
+
+  @include responsive_lg{
+    .defaultClass{
+      font-size: 18px;
+      padding: 5px;
+    }
+
+  }
+  @include responsive_sm{
+    .defaultClass{
+      font-size: 18px;
+      padding: 5px;
+      min-height: 50px ;
+    }
+
+  }

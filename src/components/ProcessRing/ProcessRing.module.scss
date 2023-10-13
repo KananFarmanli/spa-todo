@@ -1,0 +1,54 @@
+@import "../../style/variables.scss";
+.svg-pi-wrapper {
+    position: relative;
+  }
+  
+  .svg-pi {
+    transform: rotate(-90deg); /* Fix the orientation */
+  }
+  
+  /* Animated spinner version */
+  .svg-pi-indicator--spinner {
+    animation: spinner .75s linear ;
+    transform-origin: center;
+  }
+  
+  .svg-pi-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .svg-pi-label__loading {
+    
+    font-size: 0.75em;
+    color:$light;
+    padding-bottom: 10px;
+  }
+  
+  .svg-pi-label__progress {
+    font-size: 1.5em;
+    color:$light;
+    font-weight: bold;
+  }
+  
+  .svg-pi-label__loading,
+  .svg-pi-label__progress {
+    display: block;
+  }
+  
+  /* Spinner animation */
+  @keyframes spinner {
+    0% {
+      transform: rotate(0)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+
+
+

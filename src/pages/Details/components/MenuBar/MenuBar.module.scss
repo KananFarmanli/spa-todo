@@ -1,0 +1,92 @@
+@import "../../../../style/variables.scss";
+
+.menu-container{ 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+
+
+
+
+}
+
+
+.container {
+    display:flex;
+    color:$light;
+   
+  
+    
+    
+    
+     div{
+     
+ 
+      font-size: 20px;
+  
+    
+  }
+
+}
+
+.navbar{
+    position: relative;
+    display:flex;
+    width: 500px;
+  }
+  
+  .menu{
+    padding: 10px;
+    display:flex;
+    height: 45px;
+    align-items:center;
+    justify-content:center;
+    z-index: 999;
+    cursor:pointer;
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -o-user-select: none; 
+   
+    
+  }
+
+  .menu-non-active{
+    display:none
+  }
+
+
+  .menuContainer{
+    width: 100%;
+    height:100%;
+  }
+  
+  .background{
+    transition:0.2s all ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:dodgerblue;
+    z-index: 99;
+  
+  
+  }
+
+  .overlay{
+    width: 100%;
+    height: 5px;
+    background-color:dodgerblue;;
+  }
+
+  .sectionContent{
+    overflow: auto;
+    border-left:5px solid dodgerblue;
+    flex-grow: 1;
+ 
+    
+    
+    height: 100%;
+  }

@@ -24,31 +24,35 @@ $light: rgb(255, 255, 255);
   }
 
   @mixin responsive_xl {
-    @media (max-width: 1200) {
+    @media screen and (max-width: 1400px) {
       @content;
     }
   }
+  
   @mixin responsive_lg {
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
       @content;
     }
   }
+  
   @mixin responsive_md {
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       @content;
     }
   }
+  
   @mixin responsive_sm {
-    @media (max-width: 640px) {
+    @media screen and (max-width: 640px) {
       @content;
     }
   }
+  
   @mixin responsive_xs {
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
       @content;
     }
   }
-
+  
 
 
 

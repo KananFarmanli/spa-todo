@@ -6,24 +6,19 @@ import useBoard from "./useBoard";
 import Modal from "../../components/ui/Modal";
 import Loading from "../../components/Loading/Loading";
 import Button from "../../components/Button/Button";
+import useModal from "../../components/ui/useModal";
 
 export default function Board() {
-  const {
-    boards,
-    loading,
-    modalOpen,
-    inputRef,
-    openModal,
-    createBoard,
-    closeModal,
-  } = useBoard();
+  const { openModal, modalOpen, closeModal } = useModal();
+
+  const { boards, loading, inputRef , handleSubmit, loadingCreateBtn} = useBoard(closeModal);
 
   console.log(boards);
   return (
     <Fragment>
       {!loading ? (
         <div className={cls.grid}>
-          <EmptyCard onClick={openModal} />
+          <EmptyCard onClick={openModal} loadingCreateBtn={loadingCreateBtn} />
           {boards.map((board) => (
             <Card key={board.id} {...board} />
           ))}
@@ -34,24 +29,15 @@ export default function Board() {
             modalParentClass={cls.modalParentClass}
             modalContainerClass={cls.modalContainerClass}
           >
-            <div className={cls.request}>
-              <label htmlFor="requestInput"> Create board</label>
-              <input
-                className={cls.requestInput}
-                ref={inputRef}
-                type="text"
-                name=""
-                id="requestInput"
-              />
-            </div>
-            <Button
-              buttonClass={cls.buttonClass}
-              onClick={() =>
-                createBoard(inputRef.current ? inputRef.current.value : "")
-              }
-            >
-              Confirm
-            </Button>
+
+            <form className={cls.form} onSubmit={handleSubmit}>
+              <div className={cls.request}>
+                <label htmlFor="requestInput"> Create board :</label>
+                <input className={cls.requestInput} ref={inputRef} type="text" name="" id="requestInput"/>
+              </div>
+              <Button onClick={()=>(openModal())} buttonClass={cls.buttonClass} >Confirm</Button>
+            </form>
+
           </Modal>
         </div>
       ) : (

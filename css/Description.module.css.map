@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/style/variables.scss","../src/pages/Details/components/Description/Description.module.scss","Description.module.css"],"names":[],"mappings":"AAiEA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAAA;AC9DA;EACI,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,YAAA;EACA,kBAAA;EACA,mBAAA;EACA,aAAA;AC4CJ","file":"Description.module.css"}

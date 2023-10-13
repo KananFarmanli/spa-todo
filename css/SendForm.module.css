@@ -1,0 +1,118 @@
+/* 
+  @include responsive_lg{
+
+  } 
+
+
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+
+
+
+  */
+.delete {
+  width: 100%;
+  min-height: 50px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(255, 255, 255);
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.delete:hover {
+  background-color: dodgerblue;
+  color: rgb(255, 255, 255);
+}
+
+.buttonClass {
+  border: none;
+  outline: none;
+  width: unset;
+  min-width: 80px;
+  width: 100%;
+  max-width: 120px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(255, 255, 255);
+}
+.buttonClass:hover {
+  background-color: dodgerblue;
+  color: rgb(255, 255, 255);
+}
+.buttonClass:hover:before {
+  animation: move-light 0.7s;
+}
+.buttonClass:before {
+  width: 1.5em;
+}
+
+.form {
+  animation: slide-down 300ms ease-out forwards;
+  margin-top: 20px;
+  margin-inline: auto;
+  max-width: 1024px;
+  margin-inline: auto;
+  width: 80%;
+  display: flex;
+}
+.form > input {
+  color: black;
+  flex-grow: 1;
+  padding-block: 5px;
+  padding-inline: 10px;
+  border: none;
+  outline: none;
+}
+
+@keyframes move-light {
+  from {
+    transform: translateX(-4em) skewX(-45deg);
+  }
+  to {
+    transform: translateX(12em) skewX(-45deg);
+  }
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=SendForm.module.css.map */

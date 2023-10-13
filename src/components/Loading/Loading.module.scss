@@ -1,6 +1,6 @@
 @import "../../style/variables.scss"; 
 
-.loader {
+.defaultLoader {
     position: absolute;
     top: calc(50% - 132px);
     left: calc(50% - 132px);
@@ -66,3 +66,41 @@
     }
   }
   
+
+  @include responsive_lg{
+  
+    .defaultLoader {
+      position: absolute;
+      top: calc(50% - 132px);
+      left: calc(50% - 132px);
+      width: 264px;
+      height: 264px;
+      border-radius: 50%;
+      perspective: 800px;
+    }
+    }
+    
+  @include responsive_md{
+    
+    .defaultLoader {
+
+      top: calc(50% - 100px);
+      left: calc(50% - 100px);
+      width: 200px;
+      height: 200px;
+
+    }
+    
+  }
+  @include responsive_xs{
+  
+    .defaultLoader {
+  
+      top: calc(50% - 80px);
+      left: calc(50% - 80px);
+      width: 160px;
+      height: 160px;
+     
+    }
+    
+  }

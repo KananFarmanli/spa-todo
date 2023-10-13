@@ -1,13 +1,23 @@
-import classes from "./EmptyCard.module.scss";
+import cls from "./EmptyCard.module.scss";
+import useEmptyCard from "./useEmptyCard";
 
-type EmptyButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function EmptyCard(props: EmptyButtonProps) {
+
+type ButtonType={
+  loadingCreateBtn:boolean,
+  onClick:()=>void
+}
+export default function EmptyCard(props: ButtonType) {
+
+  const { btnDisabled } = useEmptyCard({ loadingCreateBtn: props.loadingCreateBtn } );
+
+
   return (
-    <div className={classes.container}>
-      <button className={classes.button} {...props}>
+    <div className={`${cls.container} ${btnDisabled}` }>
+      <button className={cls.button} onClick={props.onClick}>
         CREATE
       </button>
     </div>
   );
 }
+

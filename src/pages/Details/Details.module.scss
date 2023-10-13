@@ -1,13 +1,275 @@
 @import "../../style/variables.scss";
 
+.splitContainer {
+  display: flex;
+  flex-direction: column;
 
-.modalContainerClass{
-    width: 100%;
-    height: 100%;
-background-color:antiquewhite;
+  height: 100%;
 }
 
-.modalParentClass{
-  width:calc(100vw - 10rem);
-  height:100%;
+.pane-1 {
+  display: flex;
+
+  background-color: rgba-color($light, 0.1);
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+
+  & > div {
+  }
 }
+.pane-2 {
+  display: block;
+  background-color: rgba-color($light, 0.1);
+  width: 100%;
+  height: 60%;
+  overflow: scroll;
+
+  & > div {
+  }
+}
+
+.driver {
+  width: 100%;
+  height: 15px;
+  cursor: grabbing;
+}
+
+//!!!=========================="task information"======================================
+
+
+
+.taskInformation {
+  padding-inline: 60px;
+  padding-block:10px;
+  min-height: 650px;
+  background-color: rgba-color($dark, 0.4);
+  display: flex;
+  height: 100%;
+  min-width: min-content;
+  flex-direction:column;
+  
+  flex-grow: 1;
+ 
+  //justify-content: space-between;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    padding-block:10px;
+    padding-inline:10px;
+    color: $light;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.information {
+  flex-grow: 1;
+ justify-content: space-evenly;
+ gap:20px;
+
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  justify-content: start;
+gap:10px;
+  & span {
+    
+    font-size: 25px;
+  }
+}
+
+
+.id{
+ 
+  & span {
+    font-size: 20px;
+  }
+
+  
+
+}
+
+.createdAt {
+  display:flex;
+  
+  gap:3px;
+  & span {
+    color:$light;
+  }
+}
+
+
+.inProcess {
+  & span {
+    color: rgba-color($light, 0.7);
+  }
+  & span:first-child {
+    color:$light;
+  }
+}
+
+
+.completedTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date{
+  display:flex;
+  gap:10px;
+  &>span{
+  color: rgba-color($light, 0.7);}
+}
+
+
+ .control {
+  flex-grow: 1;
+  justify-content: space-evenly;
+  gap:30px
+
+ }
+
+
+.priority {
+display: flex;
+flex-grow: 1;
+justify-content:center;
+flex-direction: column;
+gap:30px;
+
+
+}
+
+.priorityTitle{ 
+  font-size:18px;
+}
+
+
+.priorityRadio{
+  display: flex;
+
+  gap:20px;
+  width: 100%;
+  justify-content:space-around;
+  transition: all 0.5s ease;
+}
+
+
+.priorityRadio label {
+  display: flex;
+  gap:10px;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+ 
+
+.priorityRadio input[type="radio"] {
+  display: none; 
+}
+
+.radioCircle {
+  width: 40px; 
+  height: 15px;
+  border-radius:4px;
+   font-size: 10px;;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border: 4px solid $light;
+  background-color:$light;
+  transition: all 0.5s ease;
+}
+
+
+
+.priorityRadio input[type="radio"]:checked + .radioCircle {
+   background-color:dodgerblue;
+    
+  }
+  .priorityRradio input[type="radio"]:checked + .radioCircle {
+ 
+  border-color: $dark-tone; 
+  color:rgba-color($light,0.7);
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+
+
+
+.delete{
+
+  width: 100%;
+    min-height: 50px;
+    font-size: 16px;
+    color: rgba-color($dark, 0.7);
+    background-color: $light;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    
+  
+    &:hover {
+      background-color: dodgerblue;
+      color: $light;
+    }
+
+
+   
+  }
+  
+
+
+// //!!!=========================="description-comments-files"======================================
+
+
+
+.description-comments-files{
+  overflow: hidden;
+  min-height: 650px;
+display:flex;
+flex-grow: 1;
+flex-direction:column;
+width:100%;
+height:100%;
+
+
+}
+
+
+.overlay{
+  width: 100%;
+  height: 5px;
+  background-color:dodgerblue;;
+}
+
+.sectionContent{
+  overflow: hidden;
+  border-left:5px solid dodgerblue;
+  flex-grow: 1;
+  background-color:rgba-color($dark, 0.4);
+  padding:20px;
+  color:$light;
+}
+ 
+
+

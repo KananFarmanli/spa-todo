@@ -1,0 +1,76 @@
+/* 
+  @include responsive_lg{
+
+  } 
+
+
+$secondary: #007bff;
+$secondary-dark: #007bff;
+
+$success-light: #007bff;
+$success: #007bff;
+$success-dark: #007bff;
+
+$dark-tone: #333;
+$dark: rgb(0, 0, 0);
+$dark-opacity:rgba(0, 0, 0, 0.55);
+$dark-opacity-80:rgba(0, 0, 0, 0.8);
+
+$info-light:rgba(112, 183, 255, 0.9);
+$info: rgba(112, 183, 255, 0.9);
+$info-dark: rgba(#167ff752, 0.2);
+
+$danger-light: #007bff;
+$danger: crimson;
+$danger-dark: #007bff;
+
+$shadow-primary:rgba(0, 0, 0, 0.25);
+$shadow-secondary:rgba(245, 247, 127, 0.5);
+
+$warning-dark: #007bff;
+$warning-light: #007bff;
+$warning: #007bff;
+
+
+$warning-dark: rgb(87, 51, 51);
+$warning-opacity:  rgba(209, 18, 18, 0.7);
+$warning:  rgb(209, 18, 18);
+;
+$light-dark:rgba(255,255,255,0.1);
+$light-opacity:rgba(255, 255, 255, 0.7);
+$light: rgb(255, 255, 255);
+
+
+
+
+  */
+.main {
+  width: 100%;
+  display: flex;
+  padding-inline: 30px;
+  padding-bottom: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(0, 0, 0) 25%, rgb(2, 60, 92) 100%);
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    padding-inline: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main {
+    padding-inline: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .main {
+    padding-inline: 5px;
+    padding-block: 5px;
+  }
+}/*# sourceMappingURL=Layout.module.css.map */

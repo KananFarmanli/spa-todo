@@ -13,7 +13,9 @@
   cursor: pointer;
 }
 
+
 .button {
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -68,10 +70,48 @@
 
 }
 
-.tittle{
+.title{
+  user-select: none;
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  -o-user-select: none; 
+ 
+  
   flex-grow: 1;
   >*{
-    
+    font-family: 'Goldman', cursive;
+  font-weight: 400;
     font-size:20px;
   }
+}
+
+
+@include responsive_lg {
+  .container {
+
+height: 120px;
+
+  
+    
+    cursor: pointer;
+    & h1{
+      font-size: 16px
+    }
+  }
+  
+}
+@include responsive_sm {
+  .container {
+
+height: 120px;
+
+  
+    
+    cursor: pointer;
+    & h1{
+      font-size: 16px
+    }
+  }
+  
 }

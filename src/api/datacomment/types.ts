@@ -1,8 +1,10 @@
 
   export type DataComment = {
     id: number;
-    name: string;
+    content: string;
+    parentId:null|number
     taskId: number;
     createdAt: string;
+    comments: DataComment[];
   };
   
