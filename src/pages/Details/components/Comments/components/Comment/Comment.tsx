@@ -3,17 +3,20 @@ import cls from "./Comment.module.scss";
 import classNames from "classnames";
 import { DataComment } from "../../../../../../api/datacomment/types";
 import SendForm from "../SendForm/SendForm";
-import { RiDeleteBinLine} from 'react-icons/ri';
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BsReplyFill } from "react-icons/bs";
+import { AiOutlineCloseSquare } from "react-icons/ai";
+
 type CommentProps = {
   comment: DataComment;
   paddingForComments: number;
-  setComments: React.Dispatch<React.SetStateAction<DataComment[]>>
+  setComments: React.Dispatch<React.SetStateAction<DataComment[]>>;
 };
 
- function Comment(props: CommentProps) {
+function Comment(props: CommentProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(false); 
-  let enhancedPadding = props.paddingForComments + 5;
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  let enhancedPadding = props.paddingForComments + 2;
   const toggleReplies = () => {
     setIsExpanded(!isExpanded);
   };
@@ -24,13 +27,12 @@ type CommentProps = {
 
   let haveChildren = props.comment?.comments?.length > 0 ? true : false;
 
-
   return (
     <div className={cls.commentContainer}>
       {haveChildren && (
         <div
           className={cls.tree}
-          style={{ width: `${enhancedPadding + 40}px` }}
+          style={{ width: `${enhancedPadding + 10}px` }}
         ></div>
       )}
       <div
@@ -42,18 +44,20 @@ type CommentProps = {
       >
         <div className={cls.commentWrapper}>
           <div className={cls.comment}>
-           <div className={cls.content}> {props.comment.content}</div>
-           <button><RiDeleteBinLine/></button>
+            <div className={cls.content}> {props.comment.content}</div>
+            <div className={cls.control}>
+              <button>
+                <RiDeleteBinLine />
+              </button>
+              <button onClick={toggleForm}>
+                {!isFormOpen ? <BsReplyFill /> : <AiOutlineCloseSquare />}
+              </button>
+            </div>
           </div>
-          <div
-            className={cls.reply}
-            onClick={toggleForm} 
-          >
-            {isFormOpen ? "Cancel" : "Reply"}
-          </div>
+
           {isFormOpen && (
             <SendForm
-            setIsFormOpen={setIsFormOpen}
+              setIsFormOpen={setIsFormOpen}
               setComments={props.setComments}
               buttonClass={cls.buttonClass}
               formClass={cls.formClass}
@@ -62,12 +66,11 @@ type CommentProps = {
             />
           )}
         </div>
-
         {isExpanded && props.comment.comments.length > 0 && (
           <div>
             {props.comment.comments.map((reply) => (
               <Comment
-              setComments={props.setComments}
+                setComments={props.setComments}
                 key={reply.id}
                 comment={reply}
                 paddingForComments={enhancedPadding}
@@ -78,7 +81,9 @@ type CommentProps = {
 
         {haveChildren && (
           <div className={cls.showComments} onClick={toggleReplies}>
-            {!isExpanded ? `Show sub-comments  ( ${props.comment.comments.length} )` : "Hide sub-comments"}
+            {!isExpanded
+              ? `Show sub-comments  ( ${props.comment.comments.length} )`
+              : "Hide sub-comments"}
           </div>
         )}
       </div>
@@ -86,4 +91,4 @@ type CommentProps = {
   );
 }
 
-export default React.memo(Comment)
+export default React.memo(Comment);

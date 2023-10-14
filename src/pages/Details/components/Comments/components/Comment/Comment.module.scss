@@ -8,7 +8,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 5px;
     width: 100%;
     gap: 20px;
     margin-bottom: 10px;
@@ -21,76 +21,98 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
   }
   
   .commentWrapper {
     animation: slide-down 300ms ease-out forwards;
-    padding-block: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    align-items: flex-end;
   }
   
   .tree {
     position: absolute;
     top: 0;
     left: 0;
+    margin-top:-5px;
     height: 100%;
-    width: 40px;
+    width: 10px;
     border-left: 1px solid rgba(white, 0.7);
     border-bottom:1px solid rgba(white, 0.7);
-    border-radius: 5px;
+    border-radius: 4px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
 
-  
+  .tools{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 10px;
+    width: 100%;
+  }
   .showComments {
-    margin-bottom: -11px;
-    padding: 5px;
-    margin-left: 30px;
+//margin-top:-10px;
+
+     margin-left: 10px;
     z-index: 3;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
   }
   
-  .reply {
-    font-size: 12px;
-    margin-left: 20px;
-    cursor: pointer;
-  }
+
   
   .comment {
     background-color: black;
-    padding: 5px;
-    padding-inline:10px;
-    display:flex;
+  
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     line-height: 1.8;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 14px;
     width: 100%;
+    overflow-x: hidden;
+   
+  }
+  
+  .content{
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    word-wrap: break-word;
+    overflow-x: auto;
+  }
 
+  .control{
+    gap: 5px;
+    padding: 5px;
+    background-color:dodgerblue;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     & svg{
+      font-size: 16px;
       fill:rgba($light, 0.7);
-      transition: all 0.2s linear;
+      transition: all 0.1s linear;
     }
   
     &>button{
       background-color:transparent;
       border:none;
       outline:none;
-
+      cursor: pointer;
       &:hover svg{
  
 
-        fill:crimson;
+        fill:white;
       }
     }
   }
-  
 
 
 
@@ -114,18 +136,166 @@
   
 
   .buttonClass{
-    min-height: 40px;
+    min-width: 50px!important;
+    max-width: 80px!important;
+    min-height: unset!important;
+    height: 25px!important;
     padding:unset;
-    border-top-right-radius:8px;
-    border-bottom-right-radius:8px;
+    width: 100px;
+    //border-top-right-radius:8px;
+    border-bottom-right-radius:4px;
+    font-size: 12px!important;;
   }
 
   .formClass{
+    padding-top: 4px;
     margin-top: unset!important;
       &>input{
-          border-top-left-radius:8px;
-          border-bottom-left-radius:8px;
+        font-size: 12px;
+        height: 25px!important;
+         // border-top-left-radius:4px;
+          border-bottom-left-radius:4px;
         
-        height: 40px;
+      
     }
   }
+
+
+  @include responsive_sm{
+    .comment{
+      &>div{
+        font-size: 12px;
+      }
+    }
+  }
+
+
+
+
+ 
+//   import React, { useState, useEffect } from "react";
+// import cls from "./Comment.module.scss";
+// import classNames from "classnames";
+// import { DataComment } from "../../../../../../api/datacomment/types";
+// import SendForm from "../SendForm/SendForm";
+// import { RiDeleteBinLine} from 'react-icons/ri';
+// import  {BsReplyFill} from 'react-icons/bs';
+// import  {AiOutlineCloseSquare} from 'react-icons/ai';
+
+
+// type CommentProps = {
+//   comment: DataComment;
+//   paddingForComments: number;
+//   setComments: React.Dispatch<React.SetStateAction<DataComment[]>>
+// };
+
+//  function Comment(props: CommentProps) {
+//   const [isExpanded, setIsExpanded] = useState(false);
+//   const [isFormOpen, setIsFormOpen] = useState(false); 
+//   let enhancedPadding = props.paddingForComments + 5;
+//   const toggleReplies = () => {
+//     setIsExpanded(!isExpanded);
+//   };
+
+//   const toggleForm = () => {
+//     setIsFormOpen(!isFormOpen);
+//   };
+
+//   let haveChildren = props.comment?.comments?.length > 0 ? true : false;
+
+
+//   return (
+//     <div className={cls.commentContainer}>
+//       {haveChildren && (
+//         <div
+//           className={cls.tree}
+//           style={{ width: `${enhancedPadding + 40}px` }}
+//         ></div>
+//       )}
+//       <div className={cls.wrapper} style={{ marginLeft: `${enhancedPadding}px`, width: `calc(100% - ${enhancedPadding}px)`}} >
+//         <div className={cls.commentWrapper}>
+
+
+
+//           <div className={cls.comment}>
+//             <div className={cls.content}> {props.comment.content}</div>
+//             <div className={cls.control}>
+//                 <button><RiDeleteBinLine/></button>
+//                 <button onClick={toggleForm}>{!isFormOpen ?<BsReplyFill/> : <AiOutlineCloseSquare/>}</button>
+//             </div>
+//           </div>
+
+//         <div className={cls.tools}>
+//     {/*     {isExpanded && props.comment.comments.length > 0 && (
+//           <div>
+//             {props.comment.comments.map((reply) => (
+//               <Comment
+//               setComments={props.setComments}
+//                 key={reply.id}
+//                 comment={reply}
+//                 paddingForComments={enhancedPadding}
+//               />
+//             ))}
+//           </div>
+//         )}
+//  */}
+//       {/*   {haveChildren && (
+//           <div className={cls.showComments} onClick={toggleReplies}>
+//             {!isExpanded ? `Show sub-comments  ( ${props.comment.comments.length} )` : "Hide sub-comments"}
+//           </div>
+//         )} */}
+//     {/*     <div className={cls.reply} onClick={toggleForm} >
+//             {isFormOpen ? "Cancel" : "Reply"}
+//           </div> */}
+//         </div>
+
+
+        
+//          {/*  {isFormOpen && (
+//             <SendForm
+//             setIsFormOpen={setIsFormOpen}
+//               setComments={props.setComments}
+//               buttonClass={cls.buttonClass}
+//               formClass={cls.formClass}
+//               taskId={props.comment.taskId}
+//               parentId={props.comment.id}
+//             />
+//           )} */}
+      
+//         </div>
+
+   
+
+       
+//       </div>
+
+
+
+    
+//     </div>
+//   );
+// }
+
+// export default React.memo(Comment)
+
+
+
+
+// {isExpanded && props.comment.comments.length > 0 && (
+//   <div>
+//     {props.comment.comments.map((reply) => (
+//       <Comment
+//       setComments={props.setComments}
+//         key={reply.id}
+//         comment={reply}
+//         paddingForComments={enhancedPadding}
+//       />
+//     ))}
+//   </div>
+// )}
+
+// {haveChildren && (
+//   <div className={cls.showComments} onClick={toggleReplies}>
+//     {!isExpanded ? `Show sub-comments  ( ${props.comment.comments.length} )` : "Hide sub-comments"}
+//   </div>
+// )}

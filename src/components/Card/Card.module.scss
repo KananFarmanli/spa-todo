@@ -3,6 +3,7 @@
 
 
 .container {
+  border-radius:4px;
   width: 300px;
   height: 150px;
   background-color: rgba-color($light,0.1);
@@ -15,7 +16,7 @@
 
 
 .button {
-
+  border-radius:4px;
   position: relative;
   display: flex;
   flex-direction: column;

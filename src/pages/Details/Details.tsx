@@ -36,11 +36,11 @@ function Details(props: DetailsProps) {
   const progressBar: number | false = progressBarFn(props.subTasks);
 
 
-  console.log(priority)
+
   return (
     <Fragment>
       <div className={cls.splitContainer}>
-        <div className={cls["pane-1"]} style={{ height: pane1 }}>
+        <div className={cls["pane-1"]} style={{ height:`${pane1}%` }}>
           <div className={cls.taskInformation}>
             <div className={cls.information}>
               <div className={cls.title}>
@@ -77,12 +77,12 @@ function Details(props: DetailsProps) {
                 <ProcessRing
                   trackColor="rgb(255,255,255)"
                   indicatorColor="crimson"
-                  size={250}
+                  size={200}
                   progress={100}
                   render={false}
                   label="You dont have any subtasks"
-                  trackWidth={15}
-                  indicatorWidth={10}
+                  trackWidth={12}
+                  indicatorWidth={8}
                 />
               )}
             </div>
@@ -121,16 +121,30 @@ function Details(props: DetailsProps) {
 
           <div className={cls["description-comments-files"]}>
             <MenuBar menuList={["Description", "Comments",  "Files"]}>
-              <Description id={"Description"} taskId={props.id} maxHeight={80} gap={110} description={props.description} />
-              <Comments setComments={setComments} id={"Comments"} taskId={props.id} maxHeight={80} comments={commentsArray}/>
+              <Description id={"Description"} taskId={props.id}   description={props.description} />
+              <Comments setComments={setComments} id={"Comments"} taskId={props.id} comments={commentsArray}/>
 
               <div id="Files">2</div>
            
             </MenuBar>
           </div>
         </div>
-        <div className={cls.driver} onMouseDown={handleMouseDown}></div>
-        <div className={cls["pane-2"]} style={{ height: pane2 }}></div>
+        <div className={cls.driver} onMouseDown={handleMouseDown}> <span className={cls.grabLine}></span></div>
+        <div className={cls["pane-2"]} style={{ height:`${pane2}%` }}>
+
+
+              <div className={cls.subtasksTitle}>Sub-Tasks <span>(3)</span></div>
+
+
+              <div className={cls.subtasks}>
+
+
+              </div>
+
+
+
+
+        </div>
       </div>
     </Fragment>
   );

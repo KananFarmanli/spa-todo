@@ -20,7 +20,7 @@ type PropsType = {
  function Comments(props: PropsType) {
 
    let paddingForComments = 1
-console.log(props.comments.length , "================================") 
+
 
 /*   useEffect(()=>{
 const abort=new AbortController()

@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import classes from "./Layout.module.scss";
-import {  Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
-
+import { useParams } from "react-router-dom";
 
 export default function Layout() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const path= useParams();
+  console.log(path)
 
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
@@ -20,7 +22,8 @@ export default function Layout() {
   }, []);
   return (
     <div className={classes.main}>
-      {windowWidth >= 576 && <Header />}
+   {/*         {!path.id && windowWidth >= 576 &&  <Header/> } */}
+   <Header/> 
       <Outlet />
     </div>
   );

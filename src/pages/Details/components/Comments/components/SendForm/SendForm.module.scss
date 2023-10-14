@@ -2,32 +2,12 @@
 
 
 
-.delete{
-
-    width: 100%;
-      min-height: 50px;
-      font-size: 16px;
-      color: rgba-color($dark, 0.7);
-      background-color: $light;
-      transition: all 0.2s ease;
-      border: none;
-      position: relative;
-      overflow: hidden;
-      
-    
-      &:hover {
-        background-color: dodgerblue;
-        color: $light;
-      }
-  
-  
-     
-    }
 
 
 
 .buttonClass{
-  
+  height: 30px;
+  min-height: 30px;;
     border:none;
     outline: none;
   width: unset;
@@ -69,10 +49,20 @@
   &>input{
     color:black;
       flex-grow:1;
+      height: 30px;
       padding-block:5px;
       padding-inline:10px;
       border:none;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      
       outline: none;
+    }
+
+    &>button{
+      padding: unset;;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
     }
     
 }

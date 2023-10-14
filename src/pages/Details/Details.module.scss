@@ -12,7 +12,7 @@
 
   background-color: rgba-color($light, 0.1);
   width: 100%;
-  height: 80%;
+
   overflow: scroll;
 
   & > div {
@@ -22,7 +22,7 @@
   display: block;
   background-color: rgba-color($light, 0.1);
   width: 100%;
-  height: 60%;
+
   overflow: scroll;
 
   & > div {
@@ -33,96 +33,92 @@
   width: 100%;
   height: 15px;
   cursor: grabbing;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  
+  &:hover>span{
+    background-color:$light;
+  }
+  
+  .grabLine {
+    transition:all 0.3s ease;
+    border-radius:4px;
+    height: 3px;
+    width: 80px;
+    background-color:rgba($light, 0.7);
+  }
 }
 
 //!!!=========================="task information"======================================
 
-
-
 .taskInformation {
-  padding-inline: 60px;
-  padding-block:10px;
+  padding-inline: 10px;
+  padding-block: 10px;
+  max-width: 240px;
+  width: 100%;
   min-height: 665px;
   background-color: rgba-color($dark, 0.4);
   display: flex;
   height: 100%;
   min-width: min-content;
-  flex-direction:column;
-  
+  flex-direction: column;
+
   flex-grow: 1;
- 
-  //justify-content: space-between;
 
   & > div {
     display: flex;
     flex-direction: column;
-    padding-block:10px;
-    padding-inline:10px;
+    padding-block: 10px;
+    padding-inline: 10px;
     color: $light;
-
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .information {
   flex-grow: 1;
- justify-content: space-evenly;
- gap:20px;
-
+  justify-content: space-evenly;
+  gap: 10px;
 }
 
 .title {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: flex-start;
   justify-content: flex-start;
-gap:10px;
+  gap: 10px;
   & span {
-    
-    font-size: 25px;
+    font-size: 16px;
   }
 }
 
-
-.id{
- 
+.id {
   & span {
-    font-size: 20px;
+    font-size: 12px;
   }
-
-  
-
 }
 
 .createdAt {
-  display:flex;
-  
-  gap:3px;
+  display: flex;
+
+  gap: 2px;
   & span {
-    color:$light;
+    font-size: 12px;
+    color: $light;
   }
 }
-
 
 .inProcess {
   & span {
+    font-size: 12px;
+
     color: rgba-color($light, 0.7);
   }
   & span:first-child {
-    color:$light;
+    font-size: 12px;
+    color: $light;
   }
 }
-
 
 .completedTasks {
   display: flex;
@@ -130,146 +126,293 @@ gap:10px;
   align-items: center;
 }
 
-.date{
-  display:flex;
-  gap:10px;
-  &>span{
-  color: rgba-color($light, 0.7);}
+.date {
+  display: flex;
+  gap: 5px;
+  & > span {
+    color: rgba-color($light, 0.7);
+  }
 }
 
-
- .control {
+.control {
   flex-grow: 1;
   justify-content: space-evenly;
-  gap:30px
-
- }
-
+  gap: 30px;
+}
 
 .priority {
-display: flex;
-flex-grow: 1;
-justify-content:center;
-flex-direction: column;
-gap:30px;
-
-
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.priorityTitle{ 
-  font-size:18px;
+.priorityTitle {
+  font-size: 12px;
 }
 
-
-.priorityRadio{
+.priorityRadio {
   display: flex;
 
-  gap:20px;
+  gap: 10px;
   width: 100%;
-  justify-content:space-around;
+  justify-content: space-around;
   transition: all 0.5s ease;
 }
 
-
 .priorityRadio label {
   display: flex;
-  gap:10px;
+  font-size: 12px;
+  gap: 10px;
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
   transition: all 0.5s ease;
+  & > p {
+    font-size: 10px;
+  }
 }
- 
 
 .priorityRadio input[type="radio"] {
-  display: none; 
+  display: none;
 }
 
 .radioCircle {
-  width: 40px; 
-  height: 15px;
-  border-radius:4px;
-   font-size: 10px;;
+  width: 30px;
+  height: 12px;
+  border-radius: 2px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
-  align-items:center;
-  border: 4px solid $light;
-  background-color:$light;
+  align-items: center;
+  border: 2px solid $light;
+  background-color: $light;
   transition: all 0.5s ease;
 }
 
-
-
 .priorityRadio input[type="radio"]:checked + .radioCircle {
-   background-color:dodgerblue;
-    
-  }
-  .priorityRradio input[type="radio"]:checked + .radioCircle {
- 
-  border-color: $dark-tone; 
-  color:rgba-color($light,0.7);
+  background-color: dodgerblue;
+}
+.priorityRradio input[type="radio"]:checked + .radioCircle {
+  border-color: $dark-tone;
+  color: rgba-color($light, 0.7);
   transition: background-color 0.2s ease-in-out;
 }
 
-
-
-
-
-.delete{
-
+.delete {
   width: 100%;
-    min-height: 50px;
-    font-size: 16px;
-    color: rgba-color($dark, 0.7);
-    background-color: $light;
-    transition: all 0.2s ease;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    
-  
-    &:hover {
-      background-color: dodgerblue;
-      color: $light;
-    }
+  min-height: 30px;
+  padding: 5px;
+  font-size: 14px;
+  color: rgba-color($dark, 0.7);
+  background-color: $light;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
 
-
-   
+  &:hover {
+    background-color: dodgerblue;
+    color: $light;
   }
-  
+}
 
+@include responsive_md {
+  .pane-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .taskInformation {
+    min-width: 100%;
+    flex-direction: row;
+    min-height: 210px;
+    max-height: 300px;
+  }
+
+  .information {
+    justify-content: space-around;
+    flex-grow: 1;
+    gap: 5px;
+  }
+
+  .title {
+    gap: 5px;
+    & span {
+      font-size: 14px;
+    }
+  }
+
+  .id {
+    & span {
+      font-size: 10px;
+    }
+  }
+
+  .createdAt {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+    & span {
+      font-size: 10px;
+    }
+  }
+
+  .inProcess {
+    & span {
+      font-size: 10px;
+    }
+    & span:first-child {
+      font-size: 10px;
+    }
+  }
+
+  .date {
+    display: flex;
+    gap: 5px;
+    & > span {
+      color: rgba-color($light, 0.7);
+    }
+  }
+
+  .priority {
+    justify-content: space-around;
+    gap: 15px;
+  }
+
+  .priorityTitle {
+    font-size: 12px;
+  }
+
+  .priorityRadio {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .priorityRadio label {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-around;
+  }
+
+  .control {
+    align-items: flex-end;
+  }
+
+  .delete {
+    width: 100%;
+    min-height: 25px;
+    min-width: 100px;
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+
+@include responsive_xs {
+  .taskInformation {
+    min-width: 100%;
+    flex-direction: column;
+    min-height: min-content;
+
+    width: 100%;
+    max-height: unset;
+  }
+  .information {
+    gap: 20px;
+    align-items: center;
+  }
+
+  .title {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: unset;
+    & span {
+      font-size: 16px;
+    }
+  }
+
+  .id {
+    & span {
+      font-size: 14px;
+    }
+  }
+
+  .createdAt {
+    display: flex;
+    flex-direction: row;
+
+    gap: 5px;
+    & span {
+      font-size: 14px;
+    }
+  }
+  .inProcess {
+    & span {
+      font-size: 14px;
+    }
+    & span:first-child {
+      font-size: 14px;
+    }
+  }
+  .priority {
+    width: 100%;
+    justify-content: space-around;
+    gap: 15px;
+    .priorityTitle {
+      font-size: 14px;
+      margin-inline: auto;
+    }
+  }
+  .priorityRadio {
+    flex-direction: row;
+    label {
+      width: unset;
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
 
 // //!!!=========================="description-comments-files"======================================
 
-
-
-.description-comments-files{
+.description-comments-files {
   overflow: hidden;
   min-height: 665px;
-display:flex;
-flex-grow: 1;
-flex-direction:column;
-width:100%;
-height:100%;
-
-
-}
-
-
-.overlay{
-  width: 100%;
-  height: 5px;
-  background-color:dodgerblue;;
-}
-
-.sectionContent{
-  overflow: hidden;
-  border-left:5px solid dodgerblue;
+  display: flex;
   flex-grow: 1;
-  background-color:rgba-color($dark, 0.4);
-  padding:20px;
-  color:$light;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
- 
 
 
+
+.subtasksTitle{
+
+width: 100%;
+height: 50px;
+background-color:dodgerblue;
+color:$light;
+font-size:20px;
+display:flex;
+align-items:center;
+justify-content:center ;
+gap:10px;
+
+span{
+  display:flex;
+align-items:center;
+justify-content:center ;
+  font-size: 20px;
+}
+}
+
+.subtasks{
+
+}

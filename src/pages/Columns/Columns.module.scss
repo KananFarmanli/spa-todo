@@ -30,9 +30,10 @@
   @include responsive_xs{
   
     .container{
+    justify-content: space-evenly;
       flex-direction: column;
-      gap:10px;
-      padding-top: 0px;
+   
+      padding-top: 50px;
      
     }
   }

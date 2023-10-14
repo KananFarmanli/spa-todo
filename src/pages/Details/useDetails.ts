@@ -13,14 +13,14 @@ type PropsType = {
 };
 export default function useDetails(props: PropsType) {
   const [commentsArray, setComments] = useState<DataComment[]>([]);
-  const [pane1, setPane1] = useState<string>("95%");
-  const [pane2, setPane2] = useState<string>(`${100 - parseInt(pane1)}%`);
+  const [pane1, setPane1] = useState<number>(95);
+  const [pane2, setPane2] = useState<number>(100-pane1);
   const  setIsDragging = useState<boolean>(false);
   const [timeElapsed, setTimeElapsed] = useState("");
   const [priority, setPriority] = useState(props.priority.toLowerCase());
 
   const progressBarFn = (subTasks: DataTask[]) => {
-    console.log(subTasks,"carta carta cart")
+
     if (subTasks.length ===0) {
       return false;
     }
@@ -74,8 +74,8 @@ export default function useDetails(props: PropsType) {
   const handleMouseMove = (e: MouseEvent) => {
     const mouseY = e.clientY;
     const containerHeight = window.innerHeight;
-    const newPane1Height = `${(mouseY / containerHeight) * 100}%`;
-    setPane1(newPane1Height);
+    const newPane1Height = (mouseY / containerHeight) * 100;
+    setPane1(()=>newPane1Height);
   };
 
   const handleMouseUp = () => {
@@ -138,7 +138,7 @@ export default function useDetails(props: PropsType) {
   }, [props.createdAt, props.status]);
 
   useEffect(() => {
-    setPane2(`${100 - parseInt(pane1)}%`);
+    setPane2(prev=>100 -pane1);
   }, [pane1]);
 
   useEffect(() => {

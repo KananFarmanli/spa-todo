@@ -1,24 +1,20 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import cls from "./MenuBar.module.scss";
 
 type MyComponentProps = {
   menuList: string[];
-  children: React.ReactNode | string; 
+  children: React.ReactNode | string;
 };
 
 type Value = {
-    forRender: string;
-    width: number;
-    height: number;
-    left: number;
+  forRender: string;
+  width: number;
+  height: number;
+  left: number;
+};
 
-    
-  };
-  
-
-
-export default  React.memo(function  MenuBar(props: MyComponentProps) {
-/*   function getMenu(arr: string[]) {
+export default React.memo(function MenuBar(props: MyComponentProps) {
+  /*   function getMenu(arr: string[]) {
     let obj: { [key: string]: boolean } = {};
     for (let index = 0; index < arr.length; index++) {
       index == 0 ? (obj[arr[index]] = true) : (obj[arr[index]] = false);
@@ -29,9 +25,6 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
   */
 
   const childrenArray = React.Children.toArray(props.children);
-
-
-
 
   const [value, setValue] = React.useState<Value>({
     forRender: "",
@@ -47,33 +40,32 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
     const rectButton = buttonElement.getBoundingClientRect();
     const rectParent = closestParent!.getBoundingClientRect();
     const distanceFromParentStart = rectButton.left - rectParent.left;
-  /*   const childrenCount = closestParent!.children.length-1 || 0; */
-    const id =buttonElement.id
-
-
+    /*   const childrenCount = closestParent!.children.length-1 || 0; */
+    const id = buttonElement.id;
 
     setValue((prev) => ({
       ...prev,
-      forRender:id,
+      forRender: id,
       left: distanceFromParentStart,
       width: targetWidth,
     }));
   };
 
-
   useEffect(() => {
-    let widthEl = document.querySelector('[data-default="defaultButton"]') as HTMLElement;
+    let widthEl = document.querySelector(
+      '[data-default="defaultButton"]'
+    ) as HTMLElement;
 
     let width = widthEl!.offsetWidth;
     let height = widthEl!.offsetHeight;
 
     setValue((prev) => ({
       ...prev,
-      forRender:props.menuList[0],
+      forRender: props.menuList[0],
       width,
       height,
     }));
-  }, [props.menuList]);
+  }, []);
 
   return (
     <div className={cls["menu-container"]}>
@@ -104,35 +96,27 @@ export default  React.memo(function  MenuBar(props: MyComponentProps) {
         </div>
       </div>
       <div className={cls.overlay}></div>
-      
+
       <div className={cls.sectionContent}>
-      {
-         childrenArray.map((el:any,index) => {
-
-
-           if(value.forRender === el.props.id){
-    
-           return ( <div className={cls.menuContainer} key={index}>
+        {childrenArray.map((el: any, index) => {
+          if (value.forRender === el.props.id) {
+            return (
+              <div className={cls.menuContainer} key={index}>
                 {el}
-              </div>)
-            
-           }else{
-
-               return (
-                 <div className={`${cls.menuContainer} ${cls["menu-non-active"]} `} key={index}>
-                   {el}
-                 </div>
-               );
-           }
-
-          })} 
-
-  
-        </div>
+              </div>
+            );
+          } else {
+            return (
+              <div
+                className={`${cls.menuContainer} ${cls["menu-non-active"]} `}
+                key={index}
+              >
+                {el}
+              </div>
+            );
+          }
+        })}
+      </div>
     </div>
   );
-}
-)
-
-
-
+});

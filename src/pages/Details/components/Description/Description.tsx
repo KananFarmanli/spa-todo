@@ -11,9 +11,6 @@ import { updateTask } from "../../../../api/datatask";
 
 type PropsType = {
   id: string;
-  height?: number;
-  maxHeight?: number;
-  gap?: number;
   taskId:number
   description:string|null;
 };
@@ -54,11 +51,25 @@ export default function Description(props: PropsType) {
         toolbarClassName={toolbarClasses}
         editorState={editorState}
         wrapperClassName="wrapper"
+        
         editorClassName={editorClasses}
         onEditorStateChange={handleEditorChange}
         readOnly={readOnly}
-        toolbarStyle={{ color: "black" }}
+
         customStyleMap={{color:"black"}}
+        hashtag={{
+          separator: ' ',
+          trigger: '#',
+        }}
+       
+        mention={{
+          separator: ' ',
+          trigger: '@',
+          suggestions: [
+            { text: 'JavaScript', value: 'javascript', url: 'js' },
+            { text: 'Golang', value: 'golang', url: 'go' },
+          ],
+        }}
       />
       <Button onClick={renderDescription} buttonClass="buttonSubmit">
         {readOnly ? "Edit description" : "Save descriPtion"}

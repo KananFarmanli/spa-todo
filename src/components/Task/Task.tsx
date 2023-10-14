@@ -44,7 +44,7 @@ export default function Task({
 
   return (
     <Fragment>
-      <Modal  modalOpen={modalOpen
+      <Modal  modalOpen={true
     } 
       onClose={closeModal} 
       modalParentClass={cls.modalParentClass}
@@ -66,6 +66,7 @@ export default function Task({
             <div className={cls.container}>
               <div className={cls.taskId}>#{index+1}</div>
               <div className={cls.taskName}>{name}</div>
+              <div className={`${cls.priority}  ${priority=="HIGH" && cls["priority-high"] }`}></div>
     
             </div>
           </div>
